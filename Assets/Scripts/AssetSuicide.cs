@@ -4,38 +4,39 @@ using UnityEngine;
 
 public class AssetSuicide : MonoBehaviour
 {
-    public float red = 0.7f;
-    public float green = 0.7f;
-    public float blue = 0.7f;
     public float change = 0.02f;
 
-    private void Start()
+    private bool _isInvisible;
+    public bool isInvisible
     {
-        SetColorToValues();
-    }
-
-    private void SetColorToValues()
-    {
-        RenderSettings.skybox.SetColor("_EmissionColor", new Color(red, green, blue));
+        get
+        {
+            return _isInvisible;
+        }
+        set
+        {
+            _isInvisible = value;
+            GetComponent<Renderer>().enabled = !value;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Should poof");
-        GetComponent<Renderer>().enabled = false;
-
-        // make sky a little more red
-        red += change;
-        green -= change;
-        blue -= change;
-        SetColorToValues();
+        print("trigger enter");
+        if(!isInvisible)
+        {
+            print("make more red");
+            isInvisible = true;
+            // make it a little more red
+            Color color = RenderSettings.skybox.GetColor("_EmissionColor");
+            color.r += 0.1f;
+            RenderSettings.skybox.SetColor("_EmissionColor", color);
+        }
     }
 
     private void OnApplicationQuit()
     {
-        red = 0.5f;
-        green = 0.5f;
-        blue = 0.5f;
-        SetColorToValues();
+        // reset to default
+        RenderSettings.skybox.SetColor("_EmissionColor", new Color(0.5f, 0.5f, 0.5f));
     }
 }
