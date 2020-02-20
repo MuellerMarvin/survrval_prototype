@@ -8,16 +8,10 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
     float xRotation = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        // get mouse input and make it relative to sensitivity and framtime
+        // get mouse input and make it relative to sensitivity and frametime
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
