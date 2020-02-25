@@ -30,6 +30,8 @@ public class AssetSuicide : MonoBehaviour
             // make it a little more red
             Color color = RenderSettings.skybox.GetColor("_EmissionColor");
             color.r += 0.1f;
+            color.b -= 0.2f;
+            color.g -= 0.1f;
             RenderSettings.skybox.SetColor("_EmissionColor", color);
         }
     }
@@ -37,6 +39,6 @@ public class AssetSuicide : MonoBehaviour
     private void OnApplicationQuit()
     {
         // reset to default
-        RenderSettings.skybox.SetColor("_EmissionColor", new Color(0.5f, 0.5f, 0.5f));
+        RenderSettings.skybox.SetColor("_EmissionColor", new Color(0.8f, 0.8f, 1f));
     }
 }
