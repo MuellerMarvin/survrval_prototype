@@ -4,41 +4,28 @@ using UnityEngine;
 
 public class AssetSuicide : MonoBehaviour
 {
-    public float change = 0.02f;
-
-    private bool _isInvisible;
-    public bool isInvisible
+    private bool _isVisible = true;
+    public bool isVisible
     {
         get
         {
-            return _isInvisible;
+            return _isVisible;
         }
         set
         {
-            _isInvisible = value;
-            GetComponent<Renderer>().enabled = !value;
+            _isVisible = value;
+            this.gameObject.SetActive(value);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        print("trigger enter");
-        if(!isInvisible)
+        if(isVisible)
         {
-            print("make more red");
-            isInvisible = true;
-            // make it a little more red
-            Color color = RenderSettings.skybox.GetColor("_EmissionColor");
-            color.r += 0.1f;
-            color.b -= 0.2f;
-            color.g -= 0.1f;
-            RenderSettings.skybox.SetColor("_EmissionColor", color);
+            RenderSettings.fog = true;
+            RenderSettings.fogEndDistance = RenderSettings.fogEndDistance - 15;
+            isVisible = false;
+            print("nyomed");
         }
-    }
-
-    private void OnApplicationQuit()
-    {
-        // reset to default
-        RenderSettings.skybox.SetColor("_EmissionColor", new Color(0.8f, 0.8f, 1f));
     }
 }
