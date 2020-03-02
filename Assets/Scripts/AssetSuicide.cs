@@ -33,5 +33,6 @@ public class AssetSuicide : MonoBehaviour
     private void OnApplicationQuit()
     {
         RenderSettings.skybox.SetFloat("_FogIntens", 0f);
+        print("Values were reset.");
     }
 }
