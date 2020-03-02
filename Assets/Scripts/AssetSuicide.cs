@@ -4,35 +4,39 @@ using UnityEngine;
 
 public class AssetSuicide : MonoBehaviour
 {
-    private bool _isVisible = true;
-    public bool isVisible
+    public float change = 0.02f;
+
+    private bool _isInvisible;
+    public bool isInvisible
     {
         get
         {
-            return _isVisible;
+            return _isInvisible;
         }
         set
         {
-            _isVisible = value;
-            this.gameObject.SetActive(value);
+            _isInvisible = value;
+            GetComponent<Renderer>().enabled = !value;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isVisible)
+        print("trigger enter");
+        if(!isInvisible)
         {
-            RenderSettings.fog = true;
-            RenderSettings.fogDensity = RenderSettings.fogDensity + 0.1f;
-            isVisible = false;
-            print("nyomed");
+            print("make more red");
+            isInvisible = true;
+            // make it a little more red
+            Color color = RenderSettings.skybox.GetColor("_EmissionColor");
+            color.r += 0.1f;
+            RenderSettings.skybox.SetColor("_EmissionColor", color);
         }
-        RenderSettings.skybox.SetFloat("_FogIntens", RenderSettings.fogDensity);
     }
 
     private void OnApplicationQuit()
     {
-        RenderSettings.skybox.SetFloat("_FogIntens", 0f);
-        print("Values were reset.");
+        // reset to default
+        RenderSettings.skybox.SetColor("_EmissionColor", new Color(0.5f, 0.5f, 0.5f));
     }
 }
