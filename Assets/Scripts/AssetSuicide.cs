@@ -23,9 +23,15 @@ public class AssetSuicide : MonoBehaviour
         if(isVisible)
         {
             RenderSettings.fog = true;
-            RenderSettings.fogEndDistance = RenderSettings.fogEndDistance - 15;
+            RenderSettings.fogDensity = RenderSettings.fogDensity + 0.1f;
             isVisible = false;
             print("nyomed");
         }
+        RenderSettings.skybox.SetFloat("_FogIntens", RenderSettings.fogDensity);
+    }
+
+    private void OnApplicationQuit()
+    {
+        RenderSettings.skybox.SetFloat("_FogIntens", 0f);
     }
 }
