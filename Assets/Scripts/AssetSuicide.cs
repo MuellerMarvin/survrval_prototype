@@ -20,7 +20,7 @@ public class AssetSuicide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isVisible)
+        if(other.tag == "Axe" && isVisible)
         {
             RenderSettings.fog = true;
             RenderSettings.fogDensity = RenderSettings.fogDensity + 0.1f;
