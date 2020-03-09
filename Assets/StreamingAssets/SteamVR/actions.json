@@ -27,7 +27,7 @@
       "skeleton": "/skeleton/hand/right"
     },
     {
-      "name": "/actions/default/in/Squeeze",
+      "name": "/actions/default/in/Pinch",
       "type": "vector1",
       "requirement": "optional"
     },
