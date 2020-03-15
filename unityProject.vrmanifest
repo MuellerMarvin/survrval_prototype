@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.survrval_prototype.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Survive in VR\\Documents\\GitKraken\\survrval_prototype\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\xdron\\Documents\\GitKraken\\survrval_prototype\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "SurVRval_Prototype [Testing]"
