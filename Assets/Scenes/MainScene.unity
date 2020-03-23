@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.47800225, g: 0.5985699, b: 0.81219023, a: 1}
+  m_IndirectSpecularColor: {r: 0.42351156, g: 0.38278985, b: 0.44725534, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23592,6 +23592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
 --- !u!64 &307056836
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25937,6 +25938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
 --- !u!64 &438486035
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65522,6 +65524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
 --- !u!1001 &1002415557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71714,6 +71717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
 --- !u!64 &1178281563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71746,6 +71750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
 --- !u!64 &1254891605
 MeshCollider:
   m_ObjectHideFlags: 0

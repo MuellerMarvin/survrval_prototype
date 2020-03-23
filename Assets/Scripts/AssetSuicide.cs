@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AssetSuicide : MonoBehaviour
 {
+    public GameObject stick;
     private bool _isVisible = true;
     public bool isVisible
     {
@@ -25,7 +26,9 @@ public class AssetSuicide : MonoBehaviour
             RenderSettings.fog = true;
             RenderSettings.fogDensity = RenderSettings.fogDensity + 0.1f;
             isVisible = false;
-            print("nyomed");
+            print("Tree removed.");
+            Instantiate(stick, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity); ;
+            print("Stick spawned.");
         }
         RenderSettings.skybox.SetFloat("_FogIntens", RenderSettings.fogDensity);
     }
