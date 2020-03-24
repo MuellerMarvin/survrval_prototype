@@ -40,7 +40,9 @@ public class AssetSuicide : MonoBehaviour
             // Spawns sticks
             for(int i = 0; i < this.AmountOfSticksToSpawn; i++)
             {
-                Instantiate(this.stick, this.transform.position + new Vector3(Random.Range(-DropSquareSize, DropSquareSize), 0.5f, Random.Range(-DropSquareSize, DropSquareSize)), Quaternion.identity);
+                Instantiate(this.stick, // configure what will spawn
+                    this.transform.position + new Vector3(Random.Range(-DropSquareSize, DropSquareSize), 0.5f, Random.Range(-DropSquareSize, DropSquareSize)), // decide on the position it will spawn in
+                    Quaternion.Euler(90f, Random.Range(90f, 360f), 0)); // configure the rotation it will spawn in
             }
             print("Sticks spawned.");
         }
