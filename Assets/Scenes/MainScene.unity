@@ -23592,6 +23592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
+  AmountOfSticksToSpawn: 5
+  DropSquareSize: 2
 --- !u!64 &307056836
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23647,7 +23650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f878a5c485e61714085f44682b87bc26, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f878a5c485e61714085f44682b87bc26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25937,6 +25940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
+  AmountOfSticksToSpawn: 5
+  DropSquareSize: 2
 --- !u!64 &438486035
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65522,6 +65528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
+  AmountOfSticksToSpawn: 5
+  DropSquareSize: 2
 --- !u!1001 &1002415557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71714,6 +71723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
+  AmountOfSticksToSpawn: 5
+  DropSquareSize: 2
 --- !u!64 &1178281563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71746,6 +71758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fecdc31b4928b489f5bf6fcbe30340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
+  AmountOfSticksToSpawn: 5
+  DropSquareSize: 2
 --- !u!64 &1254891605
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71823,8 +71838,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1400074093
-MeshCollider:
+--- !u!65 &1400074093
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -71833,10 +71848,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1400074094
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -71894,7 +71908,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1400504721 stripped
 Transform:
@@ -82480,7 +82494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f878a5c485e61714085f44682b87bc26, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f878a5c485e61714085f44682b87bc26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
