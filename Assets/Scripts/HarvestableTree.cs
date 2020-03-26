@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssetSuicide : MonoBehaviour
+public class HarvestableTree : MonoBehaviour
 {
     // Configuration
     public GameObject stick;
