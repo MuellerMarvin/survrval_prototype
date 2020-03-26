@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssetSuicide : MonoBehaviour
+public class HarvestableTree : MonoBehaviour
 {
     // Configuration
+    public EnvironmentManager environmentManager;
     public GameObject stick;
     public int AmountOfSticksToSpawn;
     public float DropSquareSize;
@@ -25,19 +26,20 @@ public class AssetSuicide : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        environmentManager.CallMaximumTreeCountIncrease();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Axe" && isVisible)
         {
-            // Increase fog
-            RenderSettings.fog = true;
-            RenderSettings.fogDensity = RenderSettings.fogDensity + 0.1f;
-
             // Make tree invisible
             this.isVisible = false;
-            print("Tree removed.");
+            print("Tree invisible.");
 
-            // Spawns sticks
+            // Spawn sticks
             for(int i = 0; i < this.AmountOfSticksToSpawn; i++)
             {
                 Instantiate(this.stick, // configure what will spawn
@@ -45,13 +47,9 @@ public class AssetSuicide : MonoBehaviour
                     Quaternion.Euler(90f, Random.Range(90f, 360f), 0)); // configure the rotation it will spawn in
             }
             print("Sticks spawned.");
-        }
-        RenderSettings.skybox.SetFloat("_FogIntens", RenderSettings.fogDensity);
-    }
 
-    private void OnApplicationQuit()
-    {
-        RenderSettings.skybox.SetFloat("_FogIntens", 0f);
-        print("Values were reset.");
+            // Call that the tree was removed to the EnvironmentManager
+            environmentManager.CallTreeHarvested();
+        }
     }
 }
