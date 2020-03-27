@@ -40510,6 +40510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinimumFogIntensity: 0
   MaximumFogIntensity: 0.2
+  FogChangePerFrame: 0.0001
 --- !u!4 &638513781
 Transform:
   m_ObjectHideFlags: 0

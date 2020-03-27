@@ -6,6 +6,7 @@ public class EnvironmentManager : MonoBehaviour
 {
     public float MinimumFogIntensity;
     public float MaximumFogIntensity;
+    public float FogChangePerFrame;
 
     private int MaximumTrees = 0;
     private int CurrentTrees = 0;
@@ -23,12 +24,35 @@ public class EnvironmentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CurrentFogIntensity != FogIntensityGoal)
+        if(CurrentFogIntensity == FogIntensityGoal) {return; } // if the CurrentFog and the goal are equal, no action is needed
+
+        // Calculate new fog intensity
+        if (CurrentFogIntensity < FogIntensityGoal) // If the CurrentFog is less than the goal
         {
-            RenderSettings.fogDensity = FogIntensityGoal;
-            RenderSettings.skybox.SetFloat("_FogIntens", FogIntensityGoal);
-            CurrentFogIntensity = FogIntensityGoal;
+            if((FogIntensityGoal - CurrentFogIntensity) < FogChangePerFrame) // calculate the difference between them
+            {
+                CurrentFogIntensity = FogIntensityGoal; // if the difference is smaller than a frame-step, just set the current fog to the goal
+            }
+            else // otherwise
+            {
+                CurrentFogIntensity += FogChangePerFrame; // move the intensity a little closer to the goal
+            }
         }
+        else if(CurrentFogIntensity > FogIntensityGoal) // If the CurrentFog is more than the Goal
+        {
+            if ((CurrentFogIntensity - FogIntensityGoal) < FogChangePerFrame) // calculate the difference between them
+            {
+                CurrentFogIntensity = FogIntensityGoal; // if the difference is smaller than a frame-step, just set the current fog to the goal
+            }
+            else // otherwise
+            {
+                CurrentFogIntensity -= FogChangePerFrame; // move the intensity a little closer to the goal
+            }
+        }
+
+        // Set new intensity
+        RenderSettings.fogDensity = CurrentFogIntensity;
+        RenderSettings.skybox.SetFloat("_FogIntens", CurrentFogIntensity);
     }
 
     /// <summary>
