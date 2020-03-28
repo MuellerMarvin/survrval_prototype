@@ -5,6 +5,7 @@ using UnityEngine;
 public class HarvestableTree : MonoBehaviour
 {
     // Configuration
+    public bool wasPlanted;
     public EnvironmentManager environmentManager;
     public GameObject sapling;
     public GameObject stick;
@@ -30,6 +31,11 @@ public class HarvestableTree : MonoBehaviour
     private void Start()
     {
         environmentManager.CallMaximumTreeCountIncrease();
+    }
+
+    public void SetWasPlanted(bool value)
+    {
+        wasPlanted = value;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -24,6 +24,9 @@ public class PlantableSapling : MonoBehaviour
         if (TouchesGround)
         {
             print("PLANT");
+            Tree.SendMessage("SetWasPlanted", true);
+            Instantiate(Tree, new Vector3(this.transform.position.x, 0, this.transform.position.z), Quaternion.Euler(-90f, 0, 0));
+            Destroy(this.gameObject);
         }
         else
         {
@@ -32,6 +35,14 @@ public class PlantableSapling : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Ground")
+        {
+            TouchesGround = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Ground")
         {
