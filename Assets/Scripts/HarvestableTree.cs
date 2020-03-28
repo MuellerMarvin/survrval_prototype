@@ -50,7 +50,7 @@ public class HarvestableTree : MonoBehaviour
             print("Sticks spawned.");
 
             // Spawn sapling
-            Instantiate(this.sapling, this.transform.position, Quaternion.identity);
+            Instantiate(this.sapling, this.transform.position + new Vector3(0,1f,0), Quaternion.identity);
 
             // Call that the tree was removed to the EnvironmentManager
             environmentManager.CallTreeHarvested();

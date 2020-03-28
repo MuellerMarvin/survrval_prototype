@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 5317993971788635775}
   - component: {fileID: 5317993971789601983}
   - component: {fileID: 5317993971795095999}
-  - component: {fileID: 114801298733549606}
   - component: {fileID: 114996800096607468}
   - component: {fileID: 54670549462137958}
   - component: {fileID: 114688852116717178}
+  - component: {fileID: 114309512447264126}
+  - component: {fileID: 8316662816763739349}
+  - component: {fileID: 1320961937769694930}
   m_Layer: 0
   m_Name: Sapling
   m_TagString: Untagged
@@ -30,13 +32,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5317993971787661951}
-  m_LocalRotation: {x: 0.9134082, y: -0.004075447, z: 0.0018160435, w: 0.40702018}
-  m_LocalPosition: {x: 0.001090585, y: 0.2917548, z: 0.106243946}
+  m_LocalRotation: {x: 0.7902858, y: -0.004390565, z: 0.0007938679, w: 0.61272216}
+  m_LocalPosition: {x: 0.0014532804, y: 0.26659113, z: 0.02895417}
   m_LocalScale: {x: 90.36976, y: 21.229986, z: 134.20369}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 131.96399, y: -0.000015258789, z: 0.5109863}
+  m_LocalEulerAnglesHint: {x: 104.428986, y: 0.94898987, z: 1.371994}
 --- !u!33 &5317993971788635775
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -103,19 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114801298733549606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5317993971787661951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9e7a007886d8164d9f9fd679658c928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tree: {fileID: 0}
 --- !u!114 &114996800096607468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,8 +222,60 @@ MonoBehaviour:
       m_Calls: []
   onDetachFromHand:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114309512447264126}
+        m_MethodName: ReleasedFromHand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &114309512447264126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317993971787661951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e7a007886d8164d9f9fd679658c928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tree: {fileID: 6460566860918131119, guid: d9e5f529458e43c4383adabf1b90705c, type: 3}
+--- !u!64 &8316662816763739349
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317993971787661951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: a9a2e38b3f20414448fd5754aa5c5c57, type: 3}
+--- !u!64 &1320961937769694930
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317993971787661951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: a9a2e38b3f20414448fd5754aa5c5c57, type: 3}
