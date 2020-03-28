@@ -23724,6 +23724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentManager: {fileID: 638513780}
+  sapling: {fileID: 5317993971787661951, guid: f1fc973c3df9d714bae6ed0720aba9c3, type: 3}
   stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
   AmountOfSticksToSpawn: 5
   DropSquareSize: 2
@@ -26134,6 +26135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentManager: {fileID: 638513780}
+  sapling: {fileID: 5317993971787661951, guid: f1fc973c3df9d714bae6ed0720aba9c3, type: 3}
   stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
   AmountOfSticksToSpawn: 5
   DropSquareSize: 2
@@ -66338,6 +66340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentManager: {fileID: 638513780}
+  sapling: {fileID: 5317993971787661951, guid: f1fc973c3df9d714bae6ed0720aba9c3, type: 3}
   stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
   AmountOfSticksToSpawn: 5
   DropSquareSize: 2
@@ -73144,6 +73147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentManager: {fileID: 638513780}
+  sapling: {fileID: 5317993971787661951, guid: f1fc973c3df9d714bae6ed0720aba9c3, type: 3}
   stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
   AmountOfSticksToSpawn: 5
   DropSquareSize: 2
@@ -73211,6 +73215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentManager: {fileID: 638513780}
+  sapling: {fileID: 5317993971787661951, guid: f1fc973c3df9d714bae6ed0720aba9c3, type: 3}
   stick: {fileID: 8719884150278100275, guid: 305906e2644d51446928934c0a73437d, type: 3}
   AmountOfSticksToSpawn: 5
   DropSquareSize: 2
