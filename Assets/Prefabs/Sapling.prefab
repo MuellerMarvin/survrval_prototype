@@ -250,7 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e7a007886d8164d9f9fd679658c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tree: {fileID: 6460566860918131119, guid: d9e5f529458e43c4383adabf1b90705c, type: 3}
+  tree: {fileID: 6460566860918131119, guid: d9e5f529458e43c4383adabf1b90705c, type: 3}
+  environmentManager: {fileID: 0}
 --- !u!64 &8316662816763739349
 MeshCollider:
   m_ObjectHideFlags: 0

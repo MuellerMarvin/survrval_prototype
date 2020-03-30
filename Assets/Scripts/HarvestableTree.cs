@@ -30,12 +30,14 @@ public class HarvestableTree : MonoBehaviour
 
     private void Start()
     {
-        environmentManager.CallMaximumTreeCountIncrease();
-    }
-
-    public void SetWasPlanted(bool value)
-    {
-        wasPlanted = value;
+        if(!wasPlanted)
+        {
+            environmentManager.CallMaximumTreeCountIncrease();
+        }
+        else
+        {
+            environmentManager.CallTreePlanted();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,6 +58,7 @@ public class HarvestableTree : MonoBehaviour
             print("Sticks spawned.");
 
             // Spawn sapling
+            ((PlantableSapling)sapling.gameObject.GetComponent(typeof(PlantableSapling))).environmentManager = this.environmentManager; // pass the sapling the environment manager of this scene
             Instantiate(this.sapling, this.transform.position + new Vector3(0,1f,0), Quaternion.identity);
 
             // Call that the tree was removed to the EnvironmentManager
