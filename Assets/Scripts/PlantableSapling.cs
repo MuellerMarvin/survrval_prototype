@@ -25,7 +25,7 @@ public class PlantableSapling : MonoBehaviour
         {
             print("PLANT");
             Tree.SendMessage("SetWasPlanted", true);
-            Instantiate(Tree, new Vector3(this.transform.position.x, 0, this.transform.position.z), Quaternion.Euler(-90f, 0, 0));
+            Instantiate(Tree, new Vector3(this.transform.position.x, 0, this.transform.position.z), Quaternion.Euler(-90f, Random.Range(0,360), 0));
             Destroy(this.gameObject);
         }
         else
