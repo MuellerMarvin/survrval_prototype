@@ -6,22 +6,63 @@ public enum CalculationOption { Linear, Exponential, AntiExponential };
 
 public class EnvironmentManager : MonoBehaviour
 {
+    #region Public Variables
     public CalculationOption FogCalculationMethod;
     public float MinimumFogIntensity;
     public float MaximumFogIntensity;
     public float FogChangePerFrame;
+    public float PercentageDeadBeforeFire;
+    public float BaseFireProbabilityPerFrame = 0.000001f;
+    public float ignitableObjectSearchSize = 10000f;
+    #endregion
 
-    private int MaximumTrees = 0;
-    private int CurrentTrees = 0;
-    private float FogIntensityGoal;
-    private float CurrentFogIntensity;
+    #region Private Variables
+    public int MaximumTrees { get; private set; } = 0;
+    public int CurrentTrees { get; private set; } = 0;
+    private float FogIntensityGoal = 0;
+    private float CurrentFogIntensity = 0;
+    private float FireProbabilityPerFrame = 0;
+    private List<GameObject> ignitableObjects = new List<GameObject>();
+    #endregion
 
+    #region Utility Properties
+    public float PercentageOfTreesAlive
+    {
+        get
+        {
+            if(MaximumTrees == 0)
+            {
+                return 100;
+            }
+            return CurrentTrees * (100 / MaximumTrees);
+        }
+    }
+    public float PercentageOfTreesDead
+    {
+        get
+        {
+            return (100 - PercentageOfTreesAlive);
+        }
+    }
+    #endregion
+
+    #region Start / Update Methods
     private void Start()
     {
         CurrentFogIntensity = 0f;
         RenderSettings.fogDensity = CurrentFogIntensity;
         RenderSettings.skybox.SetFloat("_FogIntens", CurrentFogIntensity);
         RenderSettings.fog = true;
+
+        // get all ignitable objects
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ignitableObjectSearchSize); // list of all objects near this one
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].tag == "Ignitable") // filter for ignitable objects
+            {
+                ignitableObjects.Add(hitColliders[i].gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -56,8 +97,19 @@ public class EnvironmentManager : MonoBehaviour
         // Set new intensity
         RenderSettings.fogDensity = CurrentFogIntensity;
         RenderSettings.skybox.SetFloat("_FogIntens", CurrentFogIntensity);
-    }
 
+        if(FireProbabilityPerFrame > 0)
+        {
+            if(Random.Range(0f, 1f) < FireProbabilityPerFrame)
+            {
+                int chosenOne = Random.Range(0, ignitableObjects.Count); // choose which one to ignite
+                ignitableObjects[chosenOne].GetComponent(typeof(Ignitable)).SendMessage("Ignite"); // ignite it
+            }
+        }
+    }
+    #endregion
+
+    #region Call Methods
     /// <summary>
     /// Should be called by a tree when it has been harvested.
     /// </summary>
@@ -67,6 +119,7 @@ public class EnvironmentManager : MonoBehaviour
         print("Tree Harvested called.");
         CurrentTrees--;
         CalculateFogGoal();
+        CalculateFireProbability();
         return CurrentTrees;
     }
 
@@ -80,7 +133,9 @@ public class EnvironmentManager : MonoBehaviour
         CurrentTrees++;
         return CurrentTrees;
     }
+    #endregion
 
+    #region Recalculation Methods
     /// <summary>
     /// Recalculates what amount of fog should be in the world at a given time
     /// </summary>
@@ -99,6 +154,27 @@ public class EnvironmentManager : MonoBehaviour
         print("FogGoal: " + FogIntensityGoal);
         return FogIntensityGoal;
     }
+
+    /// <summary>
+    /// Recalculates with what probabilty fire should spawn each frame
+    /// </summary>
+    private float CalculateFireProbability()
+    {
+        if(PercentageOfTreesDead > PercentageDeadBeforeFire) // after "percentagebeforefire"% of trees have been killed, start spawning fires
+        {
+            FireProbabilityPerFrame = (PercentageOfTreesDead * BaseFireProbabilityPerFrame);
+            print("Dead: " + PercentageOfTreesDead + "%");
+            print("Alive: " + PercentageOfTreesAlive + "%");
+            print("FireProbab: " + FireProbabilityPerFrame);
+        }
+        else
+        {
+            FireProbabilityPerFrame = 0;
+        }
+        return FireProbabilityPerFrame;
+    }
+    #endregion
+
 
     /// <summary>
     /// Is called when the game quits and resets the fog-values to their defaults.
