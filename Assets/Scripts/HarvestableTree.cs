@@ -5,7 +5,9 @@ using UnityEngine;
 public class HarvestableTree : MonoBehaviour
 {
     // Configuration
+    public bool wasPlanted;
     public EnvironmentManager environmentManager;
+    public GameObject sapling;
     public GameObject stick;
     public int AmountOfSticksToSpawn;
     public float DropSquareSize;
@@ -31,6 +33,11 @@ public class HarvestableTree : MonoBehaviour
         environmentManager.CallMaximumTreeCountIncrease();
     }
 
+    public void SetWasPlanted(bool value)
+    {
+        wasPlanted = value;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Axe" && isVisible)
@@ -47,6 +54,9 @@ public class HarvestableTree : MonoBehaviour
                     Quaternion.Euler(90f, Random.Range(90f, 360f), 0)); // configure the rotation it will spawn in
             }
             print("Sticks spawned.");
+
+            // Spawn sapling
+            Instantiate(this.sapling, this.transform.position + new Vector3(0,1f,0), Quaternion.identity);
 
             // Call that the tree was removed to the EnvironmentManager
             environmentManager.CallTreeHarvested();

@@ -89,7 +89,6 @@ public class EnvironmentManager : MonoBehaviour
     {
         print("Current: " + CurrentTrees + " Max: " + MaximumTrees);
 <<<<<<< Updated upstream
-        FogIntensityGoal = ((MaximumFogIntensity - MinimumFogIntensity) / MaximumTrees) * (MaximumTrees - CurrentTrees);
 =======
         if(FogCalculationMethod == CalculationOption.Linear)
         {
