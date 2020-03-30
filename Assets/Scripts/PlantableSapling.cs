@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class PlantableSapling : MonoBehaviour
 {
-    public GameObject Tree;
+    public GameObject tree;
+    public EnvironmentManager environmentManager;
     private bool TouchesGround = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ReleasedFromHand()
     {
         if (TouchesGround)
         {
             print("PLANT");
-            Tree.SendMessage("SetWasPlanted", true);
-            Instantiate(Tree, new Vector3(this.transform.position.x, 0, this.transform.position.z), Quaternion.Euler(-90f, Random.Range(0,360), 0));
+            ((HarvestableTree)tree.gameObject.GetComponent(typeof(HarvestableTree))).wasPlanted = true; // tell the tree it was planted, not spawned
+            ((HarvestableTree)tree.gameObject.GetComponent(typeof(HarvestableTree))).environmentManager = this.environmentManager; // pass the tree the environment manager of this scene
+            GameObject plantedTree = Instantiate(this.tree, new Vector3(this.transform.position.x, 0, this.transform.position.z), Quaternion.Euler(-90f, Random.Range(0,360), 0));
             Destroy(this.gameObject);
         }
         else

@@ -26796,7 +26796,7 @@ MonoBehaviour:
   MaximumFogIntensity: 0.2
   FogChangePerFrame: 0.0001
   PercentageDeadBeforeFire: 30
-  BaseFireProbabilityPerFrame: 0.000001
+  BaseFireProbabilityPerFrame: 0.0001
   ignitableObjectSearchSize: 10000
 --- !u!4 &638513781
 Transform:
