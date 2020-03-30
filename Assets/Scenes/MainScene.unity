@@ -41109,6 +41109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d170d3cb12c7d394ea5c1876db98dde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FogCalculationMethod: 0
   MinimumFogIntensity: 0
   MaximumFogIntensity: 0.2
   FogChangePerFrame: 0.0001
@@ -72690,8 +72691,8 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 17
-  m_RenderingPath: -1
+    m_Bits: 1
+  m_RenderingPath: 0
   m_TargetTexture: {fileID: 8400000, guid: 77facde2fb79422448bd653edda6ff63, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
