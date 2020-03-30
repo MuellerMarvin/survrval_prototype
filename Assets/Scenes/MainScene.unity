@@ -6262,6 +6262,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20590,6 +20600,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23856,6 +23876,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25135,6 +25165,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26496,6 +26536,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27479,6 +27529,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30032,6 +30092,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45831,6 +45901,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69024,6 +69104,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73636,6 +73726,16 @@ PrefabInstance:
       propertyPath: environmentManager
       value: 
       objectReference: {fileID: 638513780}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: wasPlanted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686408674704969874, guid: d9e5f529458e43c4383adabf1b90705c,
+        type: 3}
+      propertyPath: AmountOfSticksToSpawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6460566860917642639, guid: d9e5f529458e43c4383adabf1b90705c,
         type: 3}
       propertyPath: m_LocalPosition.x

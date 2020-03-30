@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum CalculationOption { Linear, Exponential, AntiExponential };
@@ -17,12 +16,39 @@ public class EnvironmentManager : MonoBehaviour
     #endregion
 
     #region Private Variables
-    public int MaximumTrees { get; private set; } = 0;
-    public int CurrentTrees { get; private set; } = 0;
+    public int MaximumTrees
+    {
+        get
+        {
+            return _MaximumTrees;
+        }
+        set
+        {
+            _MaximumTrees = value;
+        }
+    }
+    public int CurrentTrees
+    {
+        get
+        {
+            return _CurrentTrees;
+        }
+        set
+        {
+            _CurrentTrees = value;
+            CalculateFogGoal();
+            CalculateFireProbability();
+        }
+    }
     private float FogIntensityGoal = 0;
     private float CurrentFogIntensity = 0;
     private float FireProbabilityPerFrame = 0;
     private List<GameObject> ignitableObjects = new List<GameObject>();
+    #endregion
+
+    #region HolderVariables
+    private int _MaximumTrees = 0;
+    private int _CurrentTrees = 0;
     #endregion
 
     #region Utility Properties
@@ -118,8 +144,13 @@ public class EnvironmentManager : MonoBehaviour
     {
         print("Tree Harvested called.");
         CurrentTrees--;
-        CalculateFogGoal();
-        CalculateFireProbability();
+        return CurrentTrees;
+    }
+
+    public int CallTreePlanted()
+    {
+        print("Tree Planted called.");
+        CurrentTrees++;
         return CurrentTrees;
     }
 
@@ -129,6 +160,7 @@ public class EnvironmentManager : MonoBehaviour
     /// <returns>The current count of trees in the world.</returns>
     public int CallMaximumTreeCountIncrease()
     {
+        print("MaximumTreeCountIncreased called.");
         MaximumTrees++;
         CurrentTrees++;
         return CurrentTrees;

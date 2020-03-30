@@ -30,7 +30,14 @@ public class HarvestableTree : MonoBehaviour
 
     private void Start()
     {
-        environmentManager.CallMaximumTreeCountIncrease();
+        if(!wasPlanted)
+        {
+            environmentManager.CallMaximumTreeCountIncrease();
+        }
+        else
+        {
+            environmentManager.CallTreePlanted();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
