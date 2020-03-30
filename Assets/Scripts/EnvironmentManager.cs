@@ -88,8 +88,6 @@ public class EnvironmentManager : MonoBehaviour
     private float CalculateFogGoal()
     {
         print("Current: " + CurrentTrees + " Max: " + MaximumTrees);
-<<<<<<< Updated upstream
-=======
         if(FogCalculationMethod == CalculationOption.Linear)
         {
             FogIntensityGoal = (MaximumTrees - CurrentTrees) * ((MaximumFogIntensity - MinimumFogIntensity) / MaximumTrees);
@@ -99,7 +97,6 @@ public class EnvironmentManager : MonoBehaviour
             Mathf.Pow((MaximumTrees - CurrentTrees), (MaximumFogIntensity - MinimumFogIntensity + 1) / MaximumTrees);
         }
         print("FogGoal: " + FogIntensityGoal);
->>>>>>> Stashed changes
         return FogIntensityGoal;
     }
 
