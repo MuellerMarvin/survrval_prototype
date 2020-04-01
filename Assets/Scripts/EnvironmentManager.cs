@@ -94,6 +94,19 @@ public class EnvironmentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region FireSpawning
+        if (FireProbabilityPerFrame > 0)
+        {
+            if (Random.Range(0f, 1f) < FireProbabilityPerFrame)
+            {
+                print("igniting something!");
+                int chosenOne = Random.Range(0, ignitableObjects.Count); // choose which one to ignite
+                ignitableObjects[chosenOne].GetComponent(typeof(Ignitable)).SendMessage("Ignite"); // ignite it
+            }
+        }
+        #endregion
+
+        #region FogChange
         if (CurrentFogIntensity == FogIntensityGoal) { return; } // if the CurrentFog and the goal are equal, no action is needed
 
         // Calculate new fog intensity
@@ -123,17 +136,9 @@ public class EnvironmentManager : MonoBehaviour
         // Set new intensity
         RenderSettings.fogDensity = CurrentFogIntensity;
         RenderSettings.skybox.SetFloat("_FogIntens", CurrentFogIntensity);
-
-        if(FireProbabilityPerFrame > 0)
-        {
-            if(Random.Range(0f, 1f) < FireProbabilityPerFrame)
-            {
-                int chosenOne = Random.Range(0, ignitableObjects.Count); // choose which one to ignite
-                ignitableObjects[chosenOne].GetComponent(typeof(Ignitable)).SendMessage("Ignite"); // ignite it
-            }
-        }
+        #endregion
     }
-    #endregion
+#endregion
 
     #region Call Methods
     /// <summary>
@@ -194,7 +199,7 @@ public class EnvironmentManager : MonoBehaviour
     {
         if(PercentageOfTreesDead > PercentageDeadBeforeFire) // after "percentagebeforefire"% of trees have been killed, start spawning fires
         {
-            FireProbabilityPerFrame = (PercentageOfTreesDead * BaseFireProbabilityPerFrame);
+            FireProbabilityPerFrame = ((1 + PercentageOfTreesDead) * BaseFireProbabilityPerFrame);
             print("Dead: " + PercentageOfTreesDead + "%");
             print("Alive: " + PercentageOfTreesAlive + "%");
             print("FireProbab: " + FireProbabilityPerFrame);

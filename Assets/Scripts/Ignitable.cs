@@ -14,15 +14,14 @@ public class Ignitable : MonoBehaviour
         set
         {
             _currentHeat = value;
-            this.fire.gameObject.transform.localScale = new Vector3(_currentHeat, _currentHeat, _currentHeat);
         }
     }
     public float _currentHeat = 0;
     public bool ignited = false;
     private float minHeat = 0;
     private float maxHeat = 1;
-    private float heatIncreasePerFrame = 0.0001f;
-    private float spreadProbabilityPerFrame = 0.0001f;
+    public float heatIncreasePerFrame = 0.0005f;
+    public float spreadProbabilityPerFrame = 0.001f;
     private List<GameObject> ignitableObjects = new List<GameObject>();
 
 
@@ -37,7 +36,8 @@ public class Ignitable : MonoBehaviour
                 ignitableObjects.Add(hitColliders[i].gameObject);
             }
         }
-        fire = Instantiate(fire, transform.position, Quaternion.identity);
+        fire = Instantiate(fire, transform.position, Quaternion.Euler(-90f, 0, 0));
+        this.fire.SetActive(false);
         currentHeat = 0;
     }
 
@@ -45,6 +45,7 @@ public class Ignitable : MonoBehaviour
     {
         if(ignited)
         {
+            this.fire.SetActive(true);
             currentHeat += heatIncreasePerFrame;
             if(currentHeat >= maxHeat)
             {
@@ -55,12 +56,17 @@ public class Ignitable : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            this.fire.SetActive(false);
+        }
     }
 
     private void Spread()
     {
-        if(ignitableObjects.Count > 0 && Random.Range(0f, 1f) < spreadProbabilityPerFrame)
+        if(ignitableObjects.Count > 0)
         {
+            print("spreading.");
             int chosenOne = Random.Range(0, ignitableObjects.Count); // choose which one to ignite
             ignitableObjects[chosenOne].GetComponent(this.GetType()).SendMessage("Ignite"); // ignite it
         }
@@ -84,6 +90,7 @@ public class Ignitable : MonoBehaviour
         if(ignited && other.tag == "Axe")
         {
             Extinguish(); // extinguish on contact with the axe
+            print("Extinguish");
         }
     }
 }

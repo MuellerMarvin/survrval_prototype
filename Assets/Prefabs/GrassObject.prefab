@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c441bcfefe046c14bb34b99987e25a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 5323824325582034657, guid: bcf81e3ec37616e4884419dbfed1d7a5, type: 3}
-  currentHeat: 0
+  fire: {fileID: 4410511040144058289, guid: 0503eb297498f474fa0f52f161caa53a, type: 3}
+  _currentHeat: 0
   ignited: 0
 --- !u!65 &6015768161478628285
 BoxCollider:
