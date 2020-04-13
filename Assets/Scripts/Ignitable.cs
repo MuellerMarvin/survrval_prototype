@@ -17,13 +17,39 @@ public class Ignitable : MonoBehaviour
         }
     }
     public float _currentHeat = 0;
-    public bool ignited = false;
+    public bool ignited
+    { get { return _ignited; }
+        set
+        {
+            _ignited = value;
+            this.fire.SetActive(_ignited);
+        }
+    }
+    public bool _ignited = false;
     private float minHeat = 0;
-    private float maxHeat = 1;
+    private float spreadHeat = 100;
+    private float fullyBlackHeat = 2f;
+    private float destroyHeat = 1.5f;
+    private bool destroyed = false;
+    private float destroyedSince = 0;
+    private float respawnTime = 100;
     public float heatIncreasePerFrame = 0.0005f;
     public float spreadProbabilityPerFrame = 0.001f;
     private List<GameObject> ignitableObjects = new List<GameObject>();
-
+    private Renderer grasRenderer;
+    private Color startingColor;
+    public float blackLevel
+    {
+        get
+        {
+            return _blackLevel;
+        }
+        set
+        {
+            _blackLevel = value;
+        }
+    }
+   private float _blackLevel = 0;
 
     void Start()
     {
@@ -36,30 +62,73 @@ public class Ignitable : MonoBehaviour
                 ignitableObjects.Add(hitColliders[i].gameObject);
             }
         }
-        fire = Instantiate(fire, transform.position, Quaternion.Euler(-90f, 0, 0));
-        this.fire.SetActive(false);
+        foreach(Transform child in this.transform)
+        {
+            if(child.name == "Fire")
+            {
+                this.fire = child.gameObject;
+            }
+            else
+            {
+                this.grasRenderer = child.gameObject.GetComponent<Renderer>();
+            }
+        }
+        // get default values
+        startingColor = grasRenderer.material.GetColor("_Color");
+        print(this.fire);
         currentHeat = 0;
+
+        // add some time to the respawntime to make it seem more natural
+        respawnTime += Random.Range(0, 100);
     }
 
     void Update()
     {
-        if(ignited)
+        if (destroyed)
+        {
+            this.gameObject.SetActive(false);
+            this.fire.SetActive(false);
+            destroyedSince += Time.deltaTime;
+            if(destroyedSince > respawnTime)
+            {
+                // reset the object
+                this.gameObject.SetActive(true);
+                ignited = false;
+                currentHeat = 0;
+            }
+        }
+        else if(ignited)
         {
             this.fire.SetActive(true);
             currentHeat += heatIncreasePerFrame;
-            if(currentHeat >= maxHeat)
+            if(currentHeat > destroyHeat)
             {
-                currentHeat = maxHeat;
-                if(Random.Range(0f, 1f) < spreadProbabilityPerFrame)
-                {
-                    Spread();
-                }
+                destroyed = true;
+                this.gameObject.SetActive(false);
+                ignited = false;
+                return;
             }
+            // else
+            RecalculateBlackLevel();
+        }
+    }
+
+    private void UpdateColor()
+    {
+        grasRenderer.material.SetColor("_Color", new Color(startingColor.r * (1- blackLevel), startingColor.g * (1 - blackLevel), startingColor.b * (1 - blackLevel)));
+    }
+
+    private void RecalculateBlackLevel()
+    {
+        if (currentHeat > fullyBlackHeat)
+        {
+            blackLevel = 1.0f;
         }
         else
         {
-            this.fire.SetActive(false);
+            blackLevel = ((fullyBlackHeat - minHeat) / 100) * currentHeat;
         }
+        UpdateColor();
     }
 
     private void Spread()

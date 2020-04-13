@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public enum CalculationOption { Linear, Exponential, AntiExponential };
+public enum CalculationOption { Linear };
+//public enum CalculationOption { Linear, Exponential, AntiExponential, Logistical }; // this is for after the implementation-work has been done
 
 public class EnvironmentManager : MonoBehaviour
 {
@@ -183,10 +184,6 @@ public class EnvironmentManager : MonoBehaviour
         if(FogCalculationMethod == CalculationOption.Linear)
         {
             FogIntensityGoal = (MaximumTrees - CurrentTrees) * ((MaximumFogIntensity - MinimumFogIntensity) / MaximumTrees);
-        }
-        else if (FogCalculationMethod == CalculationOption.Exponential)
-        {
-            Mathf.Pow((MaximumTrees - CurrentTrees), (MaximumFogIntensity - MinimumFogIntensity + 1) / MaximumTrees);
         }
         print("FogGoal: " + FogIntensityGoal);
         return FogIntensityGoal;
