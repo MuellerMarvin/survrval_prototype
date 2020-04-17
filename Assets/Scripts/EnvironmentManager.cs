@@ -102,7 +102,7 @@ public class EnvironmentManager : MonoBehaviour
             {
                 print("igniting something!");
                 int chosenOne = Random.Range(0, ignitableObjects.Count); // choose which one to ignite
-                ignitableObjects[chosenOne].GetComponent(typeof(Ignitable)).SendMessage("Ignite"); // ignite it
+                ignitableObjects[chosenOne].GetComponent(typeof(Ignitable)).SendMessage("AttemptIgnite"); // ignite it
             }
         }
         #endregion
