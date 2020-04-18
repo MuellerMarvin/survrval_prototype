@@ -9,6 +9,7 @@ public class Fillable : MonoBehaviour
     public GameObject waterMesh;
     public Transform emptyPosition;
     public Transform fullPosition;
+    public Transform waterOutlet;
     public float maxFillAmount = 1;
     public float currentFillAmount
     {
@@ -19,10 +20,11 @@ public class Fillable : MonoBehaviour
         set
         {
             _currentFillAmount = value;
+            _currentFillAmount = Mathf.Clamp(_currentFillAmount, 0, maxFillAmount);
             UpdateWater();
         }
     }
-    private float _currentFillAmount = 0;
+    public float _currentFillAmount = 0;
 
 
     // Utility Properties
@@ -49,17 +51,40 @@ public class Fillable : MonoBehaviour
             return true; // TO-DO (based on rotation)
         }
     }
+    public float emptyingSpeedPerSecond = 5;
+
+    private void Start()
+    {
+        UpdateWater();
+    }
 
     void Update()
     {
-        // TO-DO see if the container is being tilted, to see if it should 
-        Fill(0.1f);
+
+        // if none of the 2 rotations is larger than 90°, just don't pour
+        float highestRoation = System.Math.Abs(this.transform.rotation.normalized.x) < System.Math.Abs(this.transform.rotation.normalized.z) ? System.Math.Abs(this.transform.rotation.normalized.z) : System.Math.Abs(this.transform.rotation.normalized.x);
+        
+        // if the angle is too small, don't drip onto objects
+        if(highestRoation < 0.5)
+        {
+            return;
+        }
+
+        // raycast downwards
+        RaycastHit hit;
+        Physics.Raycast(waterOutlet.position, -Vector3.up, out hit);
+        Debug.DrawLine(waterOutlet.position, hit.point, Color.cyan);
+
+        float pourAmountThisFrame = Mathf.Clamp(emptyingSpeedPerSecond * Time.deltaTime, 0, currentFillAmount);
+        hit.collider.gameObject.SendMessage("Fill", pourAmountThisFrame);
+        this.currentFillAmount -= pourAmountThisFrame;
+
     }
 
     /// <summary>
     /// Fills the container fully
     /// </summary>
-    void Fill()
+    public void Fill()
     {
         // fill the container completely
         currentFillAmount = maxFillAmount;
@@ -69,7 +94,7 @@ public class Fillable : MonoBehaviour
     /// Fills the container by a certain amount
     /// </summary>
     /// <param name="amount"></param>
-    void Fill(float amount)
+    public void Fill(float amount)
     {
         // if the bucket is fillable, add the amount
         if(fillable)
@@ -84,11 +109,16 @@ public class Fillable : MonoBehaviour
         }
     }
 
+    void Drip(float amount)
+    {
+
+    }
+
     /// <summary>
     /// Gets run every time the fill-amount has changed, to change the visuals accordingly
     /// </summary>
     private void UpdateWater()
     {
-        waterMesh.transform.position = emptyPosition.position + fullPosition.localPosition * (currentFillAmount / maxFillAmount);
+        waterMesh.transform.localPosition = emptyPosition.localPosition + fullPosition.localPosition * (currentFillAmount / maxFillAmount);
     }
 }
