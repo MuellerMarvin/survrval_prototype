@@ -84,11 +84,11 @@ public class Fillable : MonoBehaviour
     /// <summary>
     /// Fills the container fully
     /// </summary>
-    public void Fill()
-    {
-        // fill the container completely
-        currentFillAmount = maxFillAmount;
-    }
+    //public void Fill()
+    //{
+    //    // fill the container completely
+    //    currentFillAmount = maxFillAmount;
+    //}
 
     /// <summary>
     /// Fills the container by a certain amount
@@ -105,7 +105,7 @@ public class Fillable : MonoBehaviour
         // if it is overfilled, set the container to its fullest state
         if(isFull)
         {
-            Fill();
+            currentFillAmount = maxFillAmount;
         }
     }
 

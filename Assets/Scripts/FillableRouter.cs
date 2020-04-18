@@ -9,10 +9,10 @@ public class FillableRouter : MonoBehaviour
 {
     public Fillable parentScript;
 
-    public void Fill()
-    {
-        parentScript.Fill();
-    }
+    //public void Fill()
+    //{
+    //    parentScript.Fill();
+    //}
 
     public void Fill(float amount)
     {
