@@ -117,7 +117,7 @@ public class Fillable : MonoBehaviour
     /// <summary>
     /// Gets run every time the fill-amount has changed, to change the visuals accordingly
     /// </summary>
-    private void UpdateWater()
+    public void UpdateWater()
     {
         waterMesh.transform.localPosition = emptyPosition.localPosition + fullPosition.localPosition * (currentFillAmount / maxFillAmount);
     }
