@@ -95,7 +95,40 @@ MonoBehaviour:
   waterOutlet: {fileID: 3969664281453408797}
   maxFillAmount: 10
   _currentFillAmount: 5
-  emptyingSpeedPerSecond: 5
+  maxEmptyingSpeedPerSecond: 20
+  emptyingSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.7
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.88596606
+      value: 0.30652574
+      inSlope: 4.398358
+      outSlope: 4.398358
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114530455858654536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,23 +220,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.7
       value: 0.1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 7.0835795
+      outSlope: 7.0835795
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.09351683
     - serializedVersion: 3
-      time: 1
+      time: 0.95
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.18739234
+      outSlope: -0.18739234
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.55221224
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -443,7 +476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.116
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.z

@@ -51,7 +51,8 @@ public class Fillable : MonoBehaviour
             return true; // TO-DO (based on rotation)
         }
     }
-    public float emptyingSpeedPerSecond = 5;
+    public float maxEmptyingSpeedPerSecond = 20;
+    public AnimationCurve emptyingSpeedCurve;
 
     private void Start()
     {
@@ -62,10 +63,10 @@ public class Fillable : MonoBehaviour
     {
 
         // if none of the 2 rotations is larger than 90°, just don't pour
-        float highestRoation = System.Math.Abs(this.transform.rotation.normalized.x) < System.Math.Abs(this.transform.rotation.normalized.z) ? System.Math.Abs(this.transform.rotation.normalized.z) : System.Math.Abs(this.transform.rotation.normalized.x);
-        
+        float highestRotation = System.Math.Abs(this.transform.rotation.normalized.x) < System.Math.Abs(this.transform.rotation.normalized.z) ? System.Math.Abs(this.transform.rotation.normalized.z) : System.Math.Abs(this.transform.rotation.normalized.x);
+        print(highestRotation);   
         // if the angle is too small, don't drip onto objects
-        if(highestRoation < 0.5)
+        if(highestRotation < 0.7)
         {
             return;
         }
@@ -75,7 +76,7 @@ public class Fillable : MonoBehaviour
         Physics.Raycast(waterOutlet.position, -Vector3.up, out hit);
         Debug.DrawLine(waterOutlet.position, hit.point, Color.cyan);
 
-        float pourAmountThisFrame = Mathf.Clamp(emptyingSpeedPerSecond * Time.deltaTime, 0, currentFillAmount);
+        float pourAmountThisFrame = Mathf.Clamp(emptyingSpeedCurve.Evaluate(highestRotation) * Time.deltaTime * maxEmptyingSpeedPerSecond , 0, currentFillAmount);
         hit.collider.gameObject.SendMessage("Fill", pourAmountThisFrame);
         this.currentFillAmount -= pourAmountThisFrame;
 
