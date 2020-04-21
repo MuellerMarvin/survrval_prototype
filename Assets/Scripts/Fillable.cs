@@ -82,6 +82,7 @@ public class Fillable : MonoBehaviour
         Physics.Raycast(waterOutlet.position, -Vector3.up, out hit);
         Debug.DrawLine(waterOutlet.position, hit.point, Color.cyan);
 
+        // drip down
         float pourAmountThisFrame = Mathf.Clamp(emptyingSpeedCurve.Evaluate(highestRotation) * Time.deltaTime * maxEmptyingSpeedPerSecond , 0, currentFillAmount);
         hit.collider.gameObject.SendMessage("Fill", pourAmountThisFrame);
         this.currentFillAmount -= pourAmountThisFrame;
@@ -114,11 +115,6 @@ public class Fillable : MonoBehaviour
         {
             currentFillAmount = maxFillAmount;
         }
-    }
-
-    void Drip(float amount)
-    {
-
     }
 
     /// <summary>
