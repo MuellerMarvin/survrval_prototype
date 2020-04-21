@@ -70,7 +70,7 @@ public class Fillable : MonoBehaviour
 
         // if none of the 2 rotations is larger than 90°, just don't pour
         float highestRotation = System.Math.Abs(this.transform.rotation.normalized.x) < System.Math.Abs(this.transform.rotation.normalized.z) ? System.Math.Abs(this.transform.rotation.normalized.z) : System.Math.Abs(this.transform.rotation.normalized.x);
-        print(highestRotation);   
+
         // if the angle is too small, don't drip onto objects
         if(highestRotation < 0.7)
         {

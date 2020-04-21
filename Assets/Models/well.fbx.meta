@@ -1,14 +1,25 @@
 fileFormatVersion: 2
-guid: 0f16997dabd1dce41819b3ca772f5a06
+guid: 593a194bcb290e84ea33c13583f26824
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Handle
+    100002: Well
+    100004: //RootNode
+    400000: Handle
+    400002: Well
+    400004: //RootNode
     2100000: Material.001
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder
+    2100002: holz
+    2100004: Material.008
+    2100006: Material.007
+    2100008: Material.009
+    2300000: Handle
+    2300002: Well
+    3300000: Handle
+    3300002: Well
+    4300000: Well
+    4300002: Handle
   externalObjects: {}
   materials:
     importMaterials: 1
