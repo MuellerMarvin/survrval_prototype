@@ -11,10 +11,16 @@ public class Fillable : MonoBehaviour
     public Transform fullPosition;
     public Transform waterOutlet;
     public float maxFillAmount = 1;
+    public bool alwaysMaxFilled = false;
     public float currentFillAmount
     {
         get
         {
+            if(alwaysMaxFilled)
+            {
+                return maxFillAmount;
+            }
+
             return _currentFillAmount;
         }
         set

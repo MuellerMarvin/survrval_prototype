@@ -19,6 +19,10 @@ public class Ignitable : MonoBehaviour
     public float destroyHeat = 3f;
     public Color burntColor;
     public float blackLevel { get; set; }
+    public bool extinguishable = true;
+    public bool receiveWater = true;
+    public float coolingTillExtinguished = 1;
+    public float cooled = 0;
 
     // Internal Variables
     private bool destroyed = false;
@@ -48,8 +52,15 @@ public class Ignitable : MonoBehaviour
         AdjustBlackLevel(blackLevel);
         if(ignited)
         {
+            if(cooled > coolingTillExtinguished && extinguishable) // checks if the fire has been cooled down, so that it would stop burning
+            {
+                ignited = false;
+                return;
+            }
+
             ShowFire(true);
-            currentHeat += changePerSecond * Time.deltaTime;
+            currentHeat += changePerSecond * Time.deltaTime; // increases heat
+            cooled = Mathf.Clamp(cooled - (changePerSecond * Time.deltaTime), 0, float.MaxValue); // decreases external cooling
 
             if(currentHeat > destroyHeat)
             {
@@ -66,6 +77,8 @@ public class Ignitable : MonoBehaviour
         else
         {
             ShowFire(false);
+            cooled = 0;
+
             // check if the current heat is below 0 - lock it to 0 as a minimum
             if(currentHeat <= 0)
             {
@@ -194,6 +207,23 @@ public class Ignitable : MonoBehaviour
             {
                 ignitableObjects.Add(collider.gameObject);
             }
+        }
+    }
+
+    /// <summary>
+    /// Can be called to attempt to cool down the fire and extinguish it
+    /// </summary>
+    /// <param name="amount"></param>
+    public void CoolDown(float amount)
+    {
+        cooled += amount;
+    }
+
+    public void Fill(float amount)
+    {
+        if(receiveWater)
+        {
+            CoolDown(amount);
         }
     }
 
