@@ -53,9 +53,10 @@ GameObject:
   - component: {fileID: 114530455858654536}
   - component: {fileID: 54317181160076326}
   - component: {fileID: 114671701537151616}
+  - component: {fileID: 114361765589916392}
   m_Layer: 0
   m_Name: Fillable Bucket
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +95,7 @@ MonoBehaviour:
   fullPosition: {fileID: 491599642165492080}
   waterOutlet: {fileID: 3969664281453408797}
   maxFillAmount: 10
+  alwaysMaxFilled: 0
   _currentFillAmount: 5
   maxEmptyingSpeedPerSecond: 20
   emptyingSpeedCurve:
@@ -243,7 +245,18 @@ MonoBehaviour:
   restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114361765589916392}
+        m_MethodName: Detach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
@@ -251,6 +264,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &114361765589916392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627614960856397775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617b0b967ccaab448afdcd8714269543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4659833771300622778
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +287,7 @@ GameObject:
   - component: {fileID: 3969664281453408797}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +317,7 @@ GameObject:
   - component: {fileID: 491599642165492080}
   m_Layer: 0
   m_Name: Full
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,7 +347,7 @@ GameObject:
   - component: {fileID: 4078194917176239767}
   m_Layer: 0
   m_Name: Water Positions
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +380,7 @@ GameObject:
   - component: {fileID: 8509954447310349998}
   m_Layer: 0
   m_Name: Empty
-  m_TagString: Untagged
+  m_TagString: Bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +408,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d46a6528cff54334d99049b0c5021612, type: 3}
       propertyPath: m_Name
+      value: Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d46a6528cff54334d99049b0c5021612, type: 3}
+      propertyPath: m_TagString
       value: Bucket
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d46a6528cff54334d99049b0c5021612, type: 3}
@@ -469,6 +498,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_Name
       value: WaterForBucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
+      propertyPath: m_TagString
+      value: Bucket
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -39,11 +39,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5142549222045333576}
-  - component: {fileID: 4757429516068656967}
-  - component: {fileID: 6462829594612704052}
+  - component: {fileID: 4466090479492511341}
+  - component: {fileID: 6308632215265524082}
   m_Layer: 0
   m_Name: Waterwell
-  m_TagString: Well
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,21 +64,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4757429516068656967
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142549222045688936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 5.561261
-  m_Height: 17.031296
-  m_Direction: 1
-  m_Center: {x: 0, y: 8.754343, z: -0.047283173}
---- !u!114 &6462829594612704052
+--- !u!114 &4466090479492511341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +73,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5142549222045688936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b7cef3530fedb45819b82999694cbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 78951ac164ad45a45bf320215d6c52f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleDrive: {fileID: 8395525733931780538}
-  bucketUp: {fileID: 413605224345421157}
+  handle: {fileID: 5142549222045688940}
+  bucket: {fileID: 0}
+  ghostBucket: {fileID: 8694427166973618168, guid: 20ea8c434cf9ceb439e43d9259e05dec,
+    type: 3}
   bucketDown: {fileID: 7335641225014069156}
+  bucketUp: {fileID: 413605224345421157}
+  maxHandleRotations: 3
+--- !u!135 &6308632215265524082
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142549222045688936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.860142
+  m_Center: {x: -0.15821159, y: 9.6698675, z: 0.04520893}
 --- !u!1 &5142549222045688940
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7945664074974537028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 11.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 644760250126453591}
@@ -492,17 +495,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterForBucket
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.040959004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.z
