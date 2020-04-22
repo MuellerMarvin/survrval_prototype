@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.UIElements.GraphView;
 
 [CustomEditor(typeof(Ignitable))]
 [CanEditMultipleObjects]
