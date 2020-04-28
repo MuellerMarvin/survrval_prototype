@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -123,48 +124,26 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   primarySelectedBrush:
-    brushObject: {fileID: 1868593281608016, guid: c83f2df945b803a47893cec80c2c3b2a,
-      type: 2}
+    brushObject: {fileID: 6628568984326004975, guid: 00cb614819ba77e4eabe0a1914142c3e,
+      type: 3}
     usePrefabs: 1
     allowIntercollision: 0
     alignToSurface: 0
-    randomizeXRotation: 0
-    randomizeYRotation: 1
+    randomizeXRotation: 1
+    randomizeYRotation: 0
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 4.77
-    brushSize: 5
-    minScale: 0.5
-    maxScale: 1.5
+    density: 5
+    brushSize: 25
+    minScale: 1
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
-    maxSlope: 360
+    maxSlope: 0
     layerFilter:
       serializedVersion: 2
       m_Bits: 4294967295
     isTagFilteringEnabled: 0
-    tagFilter: Untagged
-  selectedBrushes:
-  - brushObject: {fileID: 1868593281608016, guid: c83f2df945b803a47893cec80c2c3b2a,
-      type: 2}
-    usePrefabs: 1
-    allowIntercollision: 0
-    alignToSurface: 0
-    randomizeXRotation: 0
-    randomizeYRotation: 1
-    randomizeZRotation: 0
-    parentContainer: {fileID: 0}
-    density: 4.77
-    brushSize: 5
-    minScale: 0.5
-    maxScale: 1.5
-    offsetFromPivot: {x: 0, y: 0, z: 0}
-    rotOffsetFromPivot: {x: 0, y: 0, z: 0}
-    minSlope: 0
-    maxSlope: 360
-    layerFilter:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    isTagFilteringEnabled: 0
-    tagFilter: Untagged
+    tagFilter: 
+  selectedBrushes: []

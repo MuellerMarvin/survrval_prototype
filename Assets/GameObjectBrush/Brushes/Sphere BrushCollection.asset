@@ -101,69 +101,69 @@ MonoBehaviour:
       m_Bits: 4294967295
     isTagFilteringEnabled: 0
     tagFilter: 
-  - brushObject: {fileID: 8814294893098966774, guid: 36084fb65af9b0f4e918505628f17f2c,
+  - brushObject: {fileID: 6628568984326004975, guid: 00cb614819ba77e4eabe0a1914142c3e,
       type: 3}
     usePrefabs: 1
-    allowIntercollision: 0
-    alignToSurface: 1
+    allowIntercollision: 1
+    alignToSurface: 0
     randomizeXRotation: 0
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 5
-    brushSize: 2.8
-    minScale: 0.5
-    maxScale: 1.5
+    density: 1
+    brushSize: 5
+    minScale: 1
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
-    maxSlope: 5.9016395
+    maxSlope: 360
     layerFilter:
       serializedVersion: 2
       m_Bits: 4294967295
     isTagFilteringEnabled: 0
     tagFilter: 
   primarySelectedBrush:
-    brushObject: {fileID: 8814294893098966774, guid: 36084fb65af9b0f4e918505628f17f2c,
+    brushObject: {fileID: 6628568984326004975, guid: 00cb614819ba77e4eabe0a1914142c3e,
       type: 3}
     usePrefabs: 1
-    allowIntercollision: 0
-    alignToSurface: 1
+    allowIntercollision: 1
+    alignToSurface: 0
     randomizeXRotation: 0
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 5
-    brushSize: 2.8
-    minScale: 0.5
-    maxScale: 1.5
+    density: 1
+    brushSize: 5
+    minScale: 1
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
-    maxSlope: 5.9016395
+    maxSlope: 360
     layerFilter:
       serializedVersion: 2
       m_Bits: 4294967295
     isTagFilteringEnabled: 0
     tagFilter: 
   selectedBrushes:
-  - brushObject: {fileID: 8814294893098966774, guid: 36084fb65af9b0f4e918505628f17f2c,
+  - brushObject: {fileID: 6628568984326004975, guid: 00cb614819ba77e4eabe0a1914142c3e,
       type: 3}
     usePrefabs: 1
-    allowIntercollision: 0
-    alignToSurface: 1
+    allowIntercollision: 1
+    alignToSurface: 0
     randomizeXRotation: 0
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 5
-    brushSize: 2.8
-    minScale: 0.5
-    maxScale: 1.5
+    density: 1
+    brushSize: 5
+    minScale: 1
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
-    maxSlope: 5.9016395
+    maxSlope: 360
     layerFilter:
       serializedVersion: 2
       m_Bits: 4294967295

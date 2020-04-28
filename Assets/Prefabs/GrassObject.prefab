@@ -58,6 +58,10 @@ MonoBehaviour:
   fullyBlackHeat: 2
   destroyHeat: 3
   burntColor: {r: 0.03529412, g: 0.046910223, b: 0.03529412, a: 0}
+  extinguishable: 1
+  receiveWater: 1
+  coolingTillExtinguished: 1
+  cooled: 0
 --- !u!65 &65382878032659500
 BoxCollider:
   m_ObjectHideFlags: 0
