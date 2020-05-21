@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Ignitable : MonoBehaviour
 {
+    // Optional BurntCounter
+    public BurntCounter burntCounter;
+
     // fire and meshObject
     public GameObject fireObject;
     public GameObject meshObject;
@@ -62,12 +65,15 @@ public class Ignitable : MonoBehaviour
             currentHeat += changePerSecond * Time.deltaTime; // increases heat
             cooled = Mathf.Clamp(cooled - (changePerSecond * Time.deltaTime), 0, float.MaxValue); // decreases external cooling
 
+            // if it has burnt down
             if(currentHeat > destroyHeat)
             {
                 ShowSelf(false);
                 ShowFire(false);
                 ignited = false;
                 destroyed = true;
+                // count burnt
+                burntCounter.CountBurnt();
             }
             else if(currentHeat > spreadHeat)
             {
