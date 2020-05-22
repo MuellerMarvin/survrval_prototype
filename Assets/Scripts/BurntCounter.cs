@@ -11,6 +11,7 @@ public class BurntCounter : MonoBehaviour
     public void CountBurnt()
     {
         BurntAmount++;
+        Debug.Log(BurntAmount + " burnt");
         TextBox.text = BurntAmount.ToString();
     }
 }
