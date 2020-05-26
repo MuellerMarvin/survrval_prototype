@@ -8,15 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TeleportAreaVisible
-  m_Shader: {fileID: 4800000, guid: 787d7485aa6482341a9f55fa37fb84f1, type: 3}
-  m_ShaderKeywords: RECEIVE_SHADOWS S_SPECULAR_NONE S_UNLIT _ALPHAPREMULTIPLY_ON _EMISSION
-  m_LightmapFlags: 0
+  m_Shader: {fileID: 4800000, guid: 7d06eee6692630845bfab03bfeace703, type: 3}
+  m_ShaderKeywords: RECEIVE_SHADOWS S_SPECULAR_NONE S_UNLIT V_CW_RANGE_FADE _GLOSSYREFLECTIONS_OFF
+    _SPECULARHIGHLIGHTS_OFF
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
     OriginalShader: Standard
-    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -73,30 +73,62 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _V_CW_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_CW_IBL_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_CW_IBL_Matcap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_CW_NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_CW_SecondaryNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - g_tOverrideLightmap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - V_CW_CW_OPTIONS: 0
+    - V_CW_Label_Albedo: 0
+    - V_CW_Label_Modes: 0
+    - V_CW_Label_Tag: 0
+    - V_CW_Label_UnityDefaults: 0
+    - V_CW_RangeFadeDrawer: 0
+    - V_CW_Rendering_Mode: 0
+    - V_CW_Texture_Mix_Mode: 0
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cutoff: 0.5
-    - _Darken: 0.641
+    - _Darken: 0
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _Emission: 0.01
     - _EmissionScaleUI: 0
     - _FogMultiplier: 1
+    - _GlossMapScale: 1
     - _Glossiness: 0
+    - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 3
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _OcclusionStrengthDirectDiffuse: 1
     - _OcclusionStrengthDirectSpecular: 1
     - _OcclusionStrengthIndirectDiffuse: 1
     - _OcclusionStrengthIndirectSpecular: 1
     - _Parallax: 0.02
-    - _SeeThru: 0.358
+    - _SeeThru: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 0
     - _SpecularMode: 2
     - _SrcBlend: 1
     - _Stencil: 0
@@ -105,7 +137,17 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _UVSec: 0
-    - _ZWrite: 0
+    - _V_CW_Fresnel_Bias: 0
+    - _V_CW_IBL_Contrast: 1
+    - _V_CW_IBL_Intensity: 1
+    - _V_CW_IncludeVertexColor: 0
+    - _V_CW_NormalMapStrength: 1
+    - _V_CW_NormalMap_UV_Scale: 1
+    - _V_CW_ReflectStrengthAlphaOffset: 0
+    - _V_CW_Rim_Bias: 0.2
+    - _V_CW_Rim_Power: 3
+    - _V_CW_SecondaryNormalMap_UV_Scale: 1
+    - _ZWrite: 1
     - g_bEnableMetallic: 0
     - g_bReceiveShadows: 1
     - g_bUnlit: 1
@@ -116,12 +158,16 @@ Material:
     - g_flReflectanceMin: 0
     - g_flReflectanceScale: 1
     m_Colors:
-    - _Color: {r: 0.26374358, g: 0.6344103, b: 0.834, a: 0.61960787}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.26, g: 0.32999998, b: 0.37, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 0}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 0.22033194, g: 0.4113334, b: 0.516, a: 0}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0}
+    - _V_CW_DetailTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _V_CW_MainTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _V_CW_ReflectColor: {r: 1, g: 1, b: 1, a: 1}
+    - _V_CW_Rim_Color: {r: 1, g: 1, b: 1, a: 1}
     - g_vWorldAlignedNormalTangentU: {r: -1, g: 0, b: 0, a: 0}
     - g_vWorldAlignedNormalTangentV: {r: 0, g: 0, b: 1, a: 0}
     - g_vWorldAlignedTextureNormal: {r: 0, g: 1, b: 0, a: 0}

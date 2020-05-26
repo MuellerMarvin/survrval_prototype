@@ -96,7 +96,7 @@ MonoBehaviour:
   waterOutlet: {fileID: 3969664281453408797}
   maxFillAmount: 10
   alwaysMaxFilled: 0
-  _currentFillAmount: 5
+  _currentFillAmount: 10
   maxEmptyingSpeedPerSecond: 20
   emptyingSpeedCurve:
     serializedVersion: 2
@@ -222,8 +222,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.7
-      value: 0.1
+      time: 0.6750023
+      value: 0.48230517
       inSlope: 7.0835795
       outSlope: 7.0835795
       tangentMode: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
       outWeight: 0.09351683
     - serializedVersion: 3
       time: 0.95
-      value: 1
+      value: 1.0084953
       inSlope: -0.18739234
       outSlope: -0.18739234
       tangentMode: 0
@@ -330,7 +330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6908556308484598076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26, z: 0}
+  m_LocalPosition: {x: 0, y: 0.379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4078194917176239767}
@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.298
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe4a04dcd38efd849bf5973ae1a9f53b, type: 3}
       propertyPath: m_LocalPosition.z
